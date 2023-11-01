@@ -2,30 +2,16 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-//1st polynomial
-struct poly1{
+//polynomial
+struct poly{
     int power;
     int value;
-    struct poly1 *next;
-};struct poly1 *head1 ,*tail1;
-
-//2nd polynomial
-struct poly2{
-    int power;
-    int value;
-    struct poly2*next;
-};struct poly2 *head2,*tail2;
-
-//result after adding
-struct result{
-    int power;
-    int value;
-    struct result *next;
-};struct result *head,*tail;
+    struct poly *next;
+};struct poly *head1 ,*tail1,*head2,*tail2,*head,*tail;
 
 //creation of 1st polynomial's single linked lists
 void create1(int power,int value){
-    struct poly1*new=(struct poly1*)malloc(sizeof(struct poly1));
+    struct poly*new=(struct poly*)malloc(sizeof(struct poly));
     new->power=power;
     new->value=value;
     new->next=NULL;
@@ -40,7 +26,7 @@ void create1(int power,int value){
 
 //creation of 2nd polynomial's single linked lists
 void create2(int power,int value){
-    struct poly2*new=(struct poly2*)malloc(sizeof(struct poly2));
+    struct poly*new=(struct poly*)malloc(sizeof(struct poly));
     new->power=power;
     new->value=value;
     new->next=NULL;
@@ -55,7 +41,7 @@ void create2(int power,int value){
 
 //inserting elements into result
 void insert(int power,int value){
-    struct result*new=(struct result*)malloc(sizeof(struct result));
+    struct poly*new=(struct poly*)malloc(sizeof(struct poly));
     new->power=power;
     new->value=value;
     new->next=NULL;
@@ -70,7 +56,7 @@ void insert(int power,int value){
 
 //display function to display the result
 void display(){
-    struct result*temp=head;
+    struct poly*temp=head;
     while(temp!=NULL){
         printf("%dx%d\t",temp->value,temp->power);
         temp=temp->next;
@@ -79,8 +65,8 @@ void display(){
 
 //It performs addition between 2 polynomials
 void add(){
-    struct poly1*temp1 = head1;
-    struct poly2*temp2=head2;
+    struct poly*temp1 = head1;
+    struct poly*temp2=head2;
     while(temp1!=NULL){
         if(temp1 ==NULL||temp2 ==NULL){
             break;
