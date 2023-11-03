@@ -52,9 +52,16 @@ r1=temp;
 rev(temp->data);
 }
 
-//displays as stacks
+//dequeing using LIFO
+void deque(){
+while(f2!=NULL){
+printf("Deleted element is: %d\t",f2->data);
+f2=f2->next;
+}}
+
+//displays as stack
 void display(){
-struct queue *temp=f2;
+struct queue *temp=f1;
 while(temp!=NULL){
 printf("%d\t",temp->data);
 temp=temp->next;
@@ -68,8 +75,9 @@ create1(3);
 create1(4);
 operations();
 display();
+deque();
 }
 
 ------------------------------------------------------------------------------------------------------
   #output:
-  4	3	2	1	
+  1	2	3	4	Deleted element is: 4	Deleted element is: 3	Deleted element is: 2	Deleted element is: 1
