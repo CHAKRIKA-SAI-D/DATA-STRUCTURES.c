@@ -1,7 +1,6 @@
 //Polynomial addition
 #include <stdio.h>
-#include<stdlib.h>
-
+#include <stdlib.h>
 //polynomial
 struct poly{
     int power;
@@ -58,7 +57,7 @@ void insert(int power,int value){
 void display(){
     struct poly*temp=head;
     while(temp!=NULL){
-        printf("%dx%d\t",temp->value,temp->power);
+        printf("%dx^%d\t",temp->value,temp->power);
         temp=temp->next;
     }
 }
@@ -101,17 +100,43 @@ void add(){
 }
 
 int main(){
-    create1(3,1);
-    create1(2,1);
-    create1(0,1);
-    create2(3,1);
-    create2(2,1);
-    create2(1,1);
-    create2(0,1);
+    int deg;
+    printf("enter the degree of first polynomial:");
+    scanf("%d",&deg);
+    while(deg!=-1){
+    int value;
+    printf("enter value for power %d: ",deg);
+    scanf("%d",&value);
+    create1(deg,value);
+    deg--;
+    }
+    int deg1;
+    printf("enter the degree of second polynomial:");
+    scanf("%d",&deg1);
+    while(deg1!=-1){
+    int value1;
+    printf("enter value for power %d: ",deg1);
+    scanf("%d",&value1);
+    create2(deg1,value1);
+    deg1--;
+    }
     add();
     display();
-    
 }
 -------------------------------------------------------------------------------------------------------------------------------------------
 #output:
-  2x3     2x2     1x1     2x0
+enter the degree of first polynomial:4
+enter value for power 4: 12
+enter value for power 3: 0
+enter value for power 2: 11
+enter value for power 1: 4
+enter value for power 0: 9
+enter the degree of second polynomial:5
+enter value for power 5: 2
+enter value for power 4: 0
+enter value for power 3: 0
+enter value for power 2: 0
+enter value for power 1: 5
+enter value for power 0: 10
+2x^5	12x^4	0x^3	11x^2	9x^1	19x^0
+  
