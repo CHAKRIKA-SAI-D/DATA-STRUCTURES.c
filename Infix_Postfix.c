@@ -32,9 +32,12 @@ int check(char x) {
     }
 }
 int precedence(char x) {
-    if (x == '^') return 3;
-    if (x == '*' || x == '/'|| x=='%') return 2;
-    if (x == '+' || x == '-') return 1;
+    if (x == '^')
+        return 3;
+    if (x == '*' || x == '/'|| x=='%')
+        return 2;
+    if (x == '+' || x == '-')
+        return 1;
     return 0;
 }
 int main() {
