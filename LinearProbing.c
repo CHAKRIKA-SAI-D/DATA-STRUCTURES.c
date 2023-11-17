@@ -16,11 +16,10 @@ void linear_probing(){
 int n;
 printf("Enter the number of keys to be inserted?");
 scanf("%d",&n);
-int a[n];
 int m;
 printf("Enter the size of hash tabel or (m)?");
 scanf("%d",&m);
-
+int a[m];
 // place the zeroes in hash table
 for(int i=0;i<m;i++){
 a[i]=0;
