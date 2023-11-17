@@ -33,11 +33,10 @@ if(a[h]==0){
 a[h]=k;
 }
 else{
-int j=1;
-while(a[(h+j)%m]!=0){
-j++;
+while(a[(h+1)%m]!=0){
+h=(h+1)%m
 }
-a[(h+j)%m]=k;
+a[(h+1)%m]=k;
 }
 }
 //displaying the hash table
