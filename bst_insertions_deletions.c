@@ -89,29 +89,100 @@ struct node* deleteNode(struct node* root, int key) {
 }
 
 int main() {
-    root = insert(root, 5);
-    root = insert(root, 3);
-    root = insert(root, 7);
-    root = insert(root, 2);
-    root = insert(root, 4);
-    root = insert(root, 6);
-    root = insert(root, 8);
-
-    printf("Inorder traversal before deletion: ");
-    inorder(root);
-    printf("\n");
-
-    int keyToDelete = 5;
-    root = deleteNode(root, keyToDelete);
-
-    printf("Inorder traversal after deleting %d: ", keyToDelete);
-    inorder(root);
-    printf("\n");
-
+    int ch=1;
+    while(ch!=0){
+    printf("enter the choice: ");
+    int x;
+    printf("1:insert\n2:delete\n3:display\n4:search\n5:exit");
+    scanf("%d",&x);
+    switch(x){
+        case 1: 
+            int q;
+            printf("enter the data");
+            scanf("%d",&q);
+            root=insert(root,q);
+            break;
+        case 2:
+            int d;
+            printf("enter the key to delete : ");
+            scanf("%d",&d);
+            root=deleteNode(root,d);
+            break;
+        case 3:
+            inorder(root);
+            break;
+        case 4:
+            int p;
+            printf("enter the key to search: ");
+            scanf("%d", &p);
+            struct node* result = search(root, p);
+            if (result != NULL) {
+                printf("Key %d found in the BST\n", p);
+            } else {
+                printf("Key %d not found in the BST\n", p);
+            }
+            break;
+        case 5:
+            ch=0;
+            break;
+    }
+    }
     return 0;
 }
 ----------------------------------------------------------------------------------------------------------------
   #output:
-Inorder traversal before deletion: 2    3       4       5       6       7       8
-Inorder traversal after deleting 5: 2   3       4       6       7       8
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit1
+enter the data2
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit1
+enter the data3
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit3
+2       3       enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit4
+enter the key to search: 3
+Key 3 found in the BST
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit4
+enter the key to search: 1
+Key 1 not found in the BST
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit2
+enter the key to delete : 2
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit3
+3       enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit4
+enter the key to search: 2
+Key 2 not found in the BST
+enter the choice: 1:insert
+2:delete
+3:display
+4:search
+5:exit5
   
